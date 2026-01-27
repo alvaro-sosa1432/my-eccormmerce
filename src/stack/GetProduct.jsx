@@ -19,8 +19,23 @@ export const GetProductById = (id) => {
   };
 
   return useQuery({
-    queryKey: ["Show Sinfle Product", id],
+    queryKey: ["Show Single Product", id],
     queryFn: fetchProductById,
     enabled: !!id,
+  });
+};
+
+export const GetProductsByCategory = (category) => {
+  const fetctProductsByCategory = async () => {
+    const response = await fetch(
+      `https://fakestoreapi.com/products/category/${category}`,
+    );
+    return response.json();
+  };
+
+  return useQuery({
+    queryKey: ["Show products by category", category],
+    queryFn: fetctProductsByCategory,
+    enabled: !!category,
   });
 };
