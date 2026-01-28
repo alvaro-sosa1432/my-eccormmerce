@@ -12,7 +12,6 @@ export const ProductDetailSection = ({ data, isPending, error }) => {
   return (
     <section className="max-w-6xl flex flex-col md:flex-row md:justify-center mx-auto ">
       {isPending && <Loader />}
-
       <div className="mx-auto mt-10">
         <section className="flex flex-col items-center p-6 dark rounded-md ">
           <h1 className="text-1xl font-bold sm:text-2xl md:text-3xl">
@@ -21,7 +20,7 @@ export const ProductDetailSection = ({ data, isPending, error }) => {
           <img className="w-60 mt-10 sm:w-70 md:w-90" src={data?.image} />
         </section>
       </div>
-      <div className="flex flex-col items-center md:w-2/5  rounded-lg  gap-5 mt-10 md:bg-white ">
+      <section className="flex flex-col items-center justify-center h-full md:w-2/5  rounded-lg   gap-5 mt-10 md:bg-white ">
         <div className="flex  flex-wrap justify-around  mt-10 gap-6  w-full  ">
           <h3 className="text-1xl sm:text-2xl font-semibold">
             Precio: ${data?.price}
@@ -34,13 +33,11 @@ export const ProductDetailSection = ({ data, isPending, error }) => {
         <div className="flex justify-start">
           <h2 className="">{data?.category}</h2>
         </div>
-        <div className="flex flex-col  w-full">
+        <div className="flex flex-col ">
           <h2 className="text-center text-3xl">Description</h2>
-          <p className="text-start m-4 rounded-md text-2xl ">
-            {data?.description}
-          </p>
+          <p className="text-start m-4 ">{data?.description}</p>
         </div>
-      </div>
+      </section>
     </section>
   );
 };

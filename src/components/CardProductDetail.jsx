@@ -1,12 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { GetProductsByCategory } from "../stack/GetProduct";
 import { Loader } from "./Loader";
 import { ProductsCard } from "./ProductsCard";
 
 export const CardProductDetail = ({ category }) => {
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const { data, isPending, error } = GetProductsByCategory(category);
+
+  const products = data?.filter((product) => product.id !== id);
 
   if (error) {
     navigate("*");
@@ -16,13 +19,13 @@ export const CardProductDetail = ({ category }) => {
       <h2 className="text-2xl font-semibold my-5">Pueden Interesarte</h2>
       {isPending && <Loader />}
       <section className="flex flex-col md:flex-row flex-wrap">
-        {data?.map((product) => (
+        {products?.map((item) => (
           <ProductsCard
-            key={product.id}
-            id={product?.id}
-            title={product?.title}
-            price={product?.price}
-            image={product?.image}
+            key={item.id}
+            id={item?.id}
+            title={item?.title}
+            price={item?.price}
+            image={item?.image}
           />
         ))}
       </section>

@@ -17,7 +17,7 @@ export const ProductDetailPage = () => {
         id={id}
       />
       <section className="max-w-6xl mx-auto">
-        <CardProductDetail category={data?.category} />
+        <CardProductDetail id={id} category={data?.category} />
       </section>
     </main>
   );
