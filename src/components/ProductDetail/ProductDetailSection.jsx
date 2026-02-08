@@ -30,7 +30,6 @@ export const ProductDetailSection = ({ data, isPending, error }) => {
             <Icon className="" icon="iconoir:cart" width="24" height="24" />
           </button>
         </div>
-        bo
         <div className="flex justify-start">
           <h2 className="">{data?.category}</h2>
         </div>

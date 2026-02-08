@@ -66,7 +66,7 @@ export const HamburgerMenu = () => {
             : "opacity-0 invisible transform -translate-x-2"
         }`}
       >
-        <div className="w-76">
+        <div className="w-76 flex flex-col  ">
           <div className="flex flex-col justify-center items-start   ">
             {links.map((link, index) => (
               <ButtonHamburgerLink
@@ -76,32 +76,36 @@ export const HamburgerMenu = () => {
                 title={link.title}
               />
             ))}
-            <button
-              onClick={handleTheme}
-              aria-label={`Cambiar a modo ${isDark ? "claro" : "oscuro"}`}
-            >
-              <div className="flex flex-col items-end  gap-2 hover:bg-white hover:text-orange-400  rounded-lg  transition-colors duration-300 w-full  ">
-                {theme === "light" ? (
-                  <div className="flex p-2 justify-start gap-2 items-center ">
-                    <Icon
-                      icon="line-md:moon-simple-filled"
-                      width="24"
-                      height="24"
-                      className=" w-10 h-10  p-1 "
-                    />
-                    <p>Claro</p>
-                  </div>
-                ) : (
+          </div>
+          <button
+            onClick={handleTheme}
+            aria-label={`Cambiar a modo ${isDark ? "claro" : "oscuro"}`}
+            className="w-9/12 m-2 cursor-pointer "
+          >
+            <div className="flex flex-col   gap-2 hover:bg-white hover:text-orange-400  rounded-lg  transition-colors duration-300 w-full  ">
+              {theme === "light" ? (
+                <div className="flex  justify-start gap-2 items-center ">
+                  <Icon
+                    icon="line-md:moon-simple-filled"
+                    width="24"
+                    height="24"
+                    className=" w-10 h-10  p-1 "
+                  />
+                  <p className="font-bold">Claro</p>
+                </div>
+              ) : (
+                <div className="flex  justify-start gap-2 items-center">
                   <Icon
                     icon="line-md:sunny-filled"
                     width="24"
                     height="24"
-                    className="hover:bg-white rounded-full w-10 h-10 p-1 cursor-pointer hover:text-orange-500 transform transition-all duration-300 "
+                    className=" w-10 h-10 p-1 "
                   />
-                )}
-              </div>
-            </button>
-          </div>
+                  <p className="font-bold">Oscuro</p>
+                </div>
+              )}
+            </div>
+          </button>
         </div>
       </div>
 
