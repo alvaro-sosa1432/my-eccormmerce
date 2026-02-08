@@ -64,9 +64,9 @@ export const HamburgerMenu = () => {
           isOpen
             ? "opacity-100 visible transform translate-x-0"
             : "opacity-0 invisible transform -translate-x-2"
-        }`}
+        } `}
       >
-        <div className="w-76 flex flex-col  ">
+        <div className="w-76 flex flex-col   ">
           <div className="flex flex-col justify-center items-start   ">
             {links.map((link, index) => (
               <ButtonHamburgerLink
